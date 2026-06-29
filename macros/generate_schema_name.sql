@@ -1,13 +1,9 @@
-{% macro generate_schema_name(custom_schema_name, node) %}
+{% macro generate_schema_name(custom_schema_name, node) -%}
 
-    {% if target.name | lower in ['default', 'dev'] %}
-        DEV
-    {% elif target.name | lower == 'qa' %}
-        QA
-    {% elif target.name | lower == 'prod' %}
-        PROD
-    {% else %}
+    {%- if custom_schema_name is none -%}
         {{ target.schema }}
-    {% endif %}
+    {%- else -%}
+        {{ custom_schema_name | trim }}
+    {%- endif -%}
 
-{% endmacro %}
+{%- endmacro %}
