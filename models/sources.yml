@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: raw
+    database: DBT_POC_DB
+    schema: RAW
+    tables:
+      - name: countries
+      - name: departments
+      - name: employees
+      - name: jobs
+      - name: job_history
+      - name: locations
+      - name: regions
