@@ -40,3 +40,6 @@ models:
     +materialized: table
     +database: "{{ target.database }}"
     +schema: "{{ target.schema }}"
+
+on-run-end:
+  - "{{ dbt_job_monitoring(results) }}"
